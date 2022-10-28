@@ -1,5 +1,7 @@
 
+//GLOBAL VARIABLES 
 var todos = $(this).parent().attr("id");
+var hours = ["9am","10am","11am","12pm","1pm","2pm","3pm","4pm","5pm"]
 
 
 //SETS TEXT TODAY DATE 
@@ -8,14 +10,27 @@ var date = moment().format("[Today is: ]dddd, MMMM Do YYYY");
 $("#currentDay").text(date);
 
 
-//GETS THE DAY HOUR
-
-var workDayHours = moment().format("hha"); // 12H clock;
 
 
-console.log(typeof workDayHours);
+//SETS THE CODE COLORS IN THE TEXT BOXES
 
-console.log(workDayHours)
+function colorBlock() {
+    
+    //GETS THE CURRENT HOUR
+
+
+    var currentTime = moment().format("HH:mm"); // 12H clock;
+
+    var idTime = $(".time-block").get(0).id
+    
+   
+
+    console.log(typeof currentTime);
+    console.log(currentTime);
+    console.log(idTime);
+
+}
+
 
 
 
@@ -35,9 +50,13 @@ function todosStorage() {
 
 }
 
+
+//GETS THE LOCAL STORAGE AND DISPLAY IT INTO THE TEXTAREA ELEMENT
+
+
 function todosShow() {
     
-    var hours = ["9am","10am","11am","12pm","1pm","2pm","3pm","4pm","5pm"]
+   
  
     for (i = 0; i <= hours.length; i++) {
 
@@ -50,16 +69,17 @@ function todosShow() {
 
     }
 }
-   
+ 
 
+
+colorBlock()
 todosStorage()
 todosShow()
 
 
 
 
-// try to create the elements in the html trough js code, using jquery
-//think on how to match the hour current hour with to the hour sections. 
+ 
 
 
 
