@@ -1,10 +1,10 @@
 
 //GLOBAL VARIABLES 
 var todos = $(this).parent().attr("id");
-var hours = ["9am","10am","11am","12pm","1pm","2pm","3pm","4pm","5pm"]
+var hours = ["09","10","11","12","13","14","15","16","17"]
 
 
-//SETS TEXT TODAY DATE 
+//SETS TEXT CURRENT DATE 
 
 var date = moment().format("[Today is: ]dddd, MMMM Do YYYY");
 $("#currentDay").text(date);
@@ -15,14 +15,68 @@ $("#currentDay").text(date);
 //SETS THE CODE COLORS IN THE TEXT BOXES
 
 function colorBlock() {
+
     
-    //GETS THE CURRENT HOUR
+
+    $(".row").each(function () {
+
+        var idTime = parseInt($(this).attr("id"));
+
+        //GETS THE CURRENT HOUR
+        
+        var currentTime = parseInt(moment().format("HH"));// 24H clock;
+
+        $(this).removeClass("past present future");
+
+                
+        if (currentTime > idTime) {
+            $(this).addClass("past");
+
+            
+        } else if (currentTime < idTime) {
+
+            $(this).addClass("future");
+
+        } else {
+
+            $(this).addClass("present");
+        }
+     
+             
+
+    })
+
+   
 
 
-    var currentTime = moment().format("HH:mm"); // 12H clock;
 
-    var idTime = $(".time-block").get(0).id
+
+        
     
+    //     var idTime = parseInt($("#09"+ i));
+
+         
+    //     if (currentTime < idtime) {
+    //         $(this).addClass("past");
+
+            
+    //     } else if (currentTime > idtime) {
+
+    //         $(this).addClass("future");
+
+    //     } else {
+
+    //         $(this).addClass("present");
+    //     }
+        
+
+
+    // }
+
+
+    
+
+
    
 
     console.log(typeof currentTime);
