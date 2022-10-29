@@ -17,15 +17,13 @@ $("#currentDay").text(date);
 function colorBlock() {
 
     
-
     $(".row").each(function () {
 
         var idTime = parseInt($(this).attr("id"));
 
         //GETS THE CURRENT HOUR
-        
         var currentTime = parseInt(moment().format("HH"));// 24H clock;
-
+        //REMOVES THE CLASSES FROM THE TIME-BLOCK 
         $(this).removeClass("past present future");
 
                 
@@ -41,48 +39,10 @@ function colorBlock() {
 
             $(this).addClass("present");
         }
-     
-             
+            
 
     })
-
    
-
-
-
-
-        
-    
-    //     var idTime = parseInt($("#09"+ i));
-
-         
-    //     if (currentTime < idtime) {
-    //         $(this).addClass("past");
-
-            
-    //     } else if (currentTime > idtime) {
-
-    //         $(this).addClass("future");
-
-    //     } else {
-
-    //         $(this).addClass("present");
-    //     }
-        
-
-
-    // }
-
-
-    
-
-
-   
-
-    console.log(typeof currentTime);
-    console.log(currentTime);
-    console.log(idTime);
-
 }
 
 
@@ -105,12 +65,12 @@ function todosStorage() {
 }
 
 
+
 //GETS THE LOCAL STORAGE AND DISPLAY IT INTO THE TEXTAREA ELEMENT
 
 
 function todosShow() {
     
-   
  
     for (i = 0; i <= hours.length; i++) {
 
@@ -122,13 +82,16 @@ function todosShow() {
         console.log(todosScreen);
 
     }
+
+    
 }
  
 
 
+todosShow()
 colorBlock()
 todosStorage()
-todosShow()
+
 
 
 
